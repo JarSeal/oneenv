@@ -1,0 +1,12 @@
+{
+  "name": "monorepo1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "module",
+  "author": "JarSeal",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "env": "node ../../index.js"
+  }
+}

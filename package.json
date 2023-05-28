@@ -1,0 +1,26 @@
+{
+  "name": "oneenv",
+  "version": "1.0.0",
+  "description": "Distributes .env files from one master .env file to different folders/workspaces in a monorepo.",
+  "main": "index.js",
+  "type": "module",
+  "repository": "https://github.com/JarSeal/oneenv",
+  "author": "JarSeal",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "env",
+    ".env",
+    "environment",
+    "variables",
+    "config",
+    "settings"
+  ],
+  "dependencies": {
+    "dotenv": "16.0.3"
+  },
+  "engines": {
+    "node": ">=16.13.2",
+    "yarn": ">=1.22.15"
+  }
+}
