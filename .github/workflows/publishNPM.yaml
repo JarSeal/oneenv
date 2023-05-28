@@ -22,9 +22,6 @@ jobs:
       - name: install packages
         run: yarn install
 
-      - name: build dist package
-        run: yarn build
-
       - name: read "publish" tag
         run: |
           echo "publish=false" >> $GITHUB_ENV

@@ -2,7 +2,7 @@
   "name": "oneenv",
   "version": "1.0.0",
   "description": "Distributes .env files from one master .env file to different folders/workspaces in a monorepo.",
-  "main": "index.js",
+  "main": "lib/main.js",
   "type": "module",
   "repository": "https://github.com/JarSeal/oneenv",
   "author": "JarSeal",
