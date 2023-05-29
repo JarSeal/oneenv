@@ -1,6 +1,0 @@
-{
-  "targets": {
-    "front": "./front/.env",
-    "back": "./back/.env"
-  }
-}

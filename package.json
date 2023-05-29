@@ -17,7 +17,7 @@
     "settings"
   ],
   "scripts": {
-    "test": "jest --verbose --runInBand --detectOpenHandles"
+    "test": "NODE_OPTIONS=--experimental-vm-modules jest --verbose --runInBand --detectOpenHandles"
   },
   "dependencies": {
     "dotenv": "16.0.3"
@@ -28,5 +28,16 @@
   "engines": {
     "node": ">=16.13.2",
     "yarn": ">=1.22.15"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "moduleFileExtensions": [
+      "js"
+    ],
+    "modulePathIgnorePatterns": [
+      "examples"
+    ],
+    "transform": {},
+    "testTimeout": 30000
   }
 }
