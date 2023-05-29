@@ -16,6 +16,9 @@
     "config",
     "settings"
   ],
+  "scripts": {
+    "test": "jest --verbose --runInBand --detectOpenHandles"
+  },
   "dependencies": {
     "dotenv": "16.0.3"
   },
