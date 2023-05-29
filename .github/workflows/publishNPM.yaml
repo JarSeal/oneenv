@@ -22,6 +22,9 @@ jobs:
       - name: install packages
         run: yarn install
 
+      - name: remove /examples && /.github
+        run: rm -rf examples && rm -rf .github
+
       - name: read "publish" tag
         run: |
           echo "publish=false" >> $GITHUB_ENV

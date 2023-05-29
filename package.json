@@ -1,6 +1,6 @@
 {
   "name": "oneenv",
-  "version": "0.9.0",
+  "version": "0.9.1",
   "description": "Distributes .env files from one master .env file to different folders/workspaces in a monorepo.",
   "main": "lib/main.js",
   "type": "module",
@@ -18,6 +18,9 @@
   ],
   "dependencies": {
     "dotenv": "16.0.3"
+  },
+  "devDependencies": {
+    "jest": "29.5.0"
   },
   "engines": {
     "node": ">=16.13.2",
