@@ -22,8 +22,11 @@ jobs:
       - name: install packages
         run: yarn install
 
-      - name: remove /examples && /.github
-        run: rm -rf examples && rm -rf .github
+      - name: test
+        run: yarn test
+
+      - name: remove '/examples', '/.github', & '/lib/test'
+        run: rm -rf examples && rm -rf .github && rm -rf lib/test
 
       - name: read "publish" tag
         run: |

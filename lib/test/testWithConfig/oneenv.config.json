@@ -1,0 +1,7 @@
+{
+  "targets": {
+    "front": "front",
+    "back": "back"
+  },
+  "separator": "--"
+}
