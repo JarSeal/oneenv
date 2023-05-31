@@ -1,0 +1,11 @@
+{
+  "name": "monorepo1",
+  "version": "1.0.0",
+  "type": "module",
+  "author": "JarSeal",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "env": "cross-env TUUT2=some2 node ./main.js"
+  }
+}

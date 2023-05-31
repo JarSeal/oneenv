@@ -1,0 +1,6 @@
+{
+  "targets": {
+    "front": "front",
+    "back": "back"
+  }
+}
