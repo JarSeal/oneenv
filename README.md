@@ -79,11 +79,9 @@ back__env_config_target=backend
 
 3. In a package.json script task:
 ```json
-..
 "scripts": {
   "env": "front__env_config_target=frontend back__env_config_target=backend oneenv"
 }
-..
 ```
 
 ## Variables
@@ -102,8 +100,8 @@ front__VARIABLE_KEY=somefrontendsecret back__VARIABLE_KEY=somebackendsecret npm 
 
 The variables can share a value by using `sv` as the handle. For example:
 ```dosini
-sv__SHARED_VALUE=somesharedvalue
+sv__SOME_SHARED_VALUE=somesharedvalue
 
-front__VARIABLE_KEY=sv__SHARED_VALUE
-back__VARIABLE_KEY=sv__SHARED_VALUE
+front__VARIABLE_KEY=sv__SOME_SHARED_VALUE
+back__VARIABLE_KEY=sv__SOME_SHARED_VALUE
 ```
