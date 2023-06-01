@@ -1,6 +1,20 @@
 # oneenv
 
-OneEnv helps keep all `.env` files' content in one file or one shell call in a monorepo. The content is then distributed to the specified folders (targets). Mainly, this is to help the developers to easily share just one master `.env` file between the services which helps creating new dev environments when a new developer joins or a developer switches computers (this has happened to me more than I would have thought). The main goal of this package is to streamline the development, but this can also be used to create `.env` files for CI/CD pipelines. It uses (dotenv)[https://www.npmjs.com/package/dotenv] under the hood.
+OneEnv helps keep all `.env` files' content in one file or one `NPM` (or `yarn`) task call in a monorepo. The content is then distributed to the specified folders (targets). This is to help the developers to easily share just one master `.env` file (in the root of the project), but can also be used to set up CI/CD pipelines. It uses [dotenv](https://www.npmjs.com/package/dotenv) under the hood.
+
+**REMEMBER TO GITIGNORE ALL `.env` FILES IN YOUR PROJECT.**
+
+## Install
+
+```console
+npm i oneenv
+```
+
+or
+
+```console
+yarn add oneenv
+```
 
 ## Syntax examples
 
@@ -25,19 +39,69 @@ front--VITE_SHARED_SECRET=sv--SHARED_SECRET
 back--SECRET=anothersecretforbackend
 back--SHARED_SECRET=sv--SHARED_SECRET
 
-# root level .env variable (without the handle)
+# root level .env variable (without any handle and separator)
 SOME_ROOT_SECRET=rootsecret
 ```
 
 Config file, `oneenv.config.json` (root of your project):
-
 ```json
 {
   "targets": {
-    "front": "front",
-    "back": "back",
+    "frontend": "frontend",
+    "backend": "backend",
     "calcService": "calcService/src"
   },
   "separator": "--"
 }
+```
+
+You do not need to specify the separator and the targets in both files, either specify them in the root .env file, in the config file, or in a package.json script task. The defining of the separator is optional, default is `__`.
+
+## Targets
+
+Targets define the `handle` and the `folder` (as the value) where the .env file is created. Targets can be set in three different ways (one of these ways is required):
+
+1. In the master .env file:
+```dosini
+front__env_config_target=frontend
+back__env_config_target=backend
+```
+
+2. In the `oneenv.config.json` file:
+```json
+"targets": {
+    "frontend": "front",
+    "backend": "back",
+  },
+```
+
+3. In a package.json script task:
+```json
+...
+"scripts": {
+  "env": "front__env_config_target=frontend back__env_config_target=backend oneenv"
+}
+...
+```
+
+## Variables
+
+The variables are defined as `[handle][separator][VARIABLEKEY]=[VALUE]`. The root .env file:
+```dosini
+front__VARIABLE_KEY=somefrontendsecret
+back__VARIABLE_KEY=somebackendsecret
+```
+or in a terminal call:
+```console
+front__VARIABLE_KEY=somefrontendsecret back__VARIABLE_KEY=somebackendsecret npm run env
+```
+
+## Shared values (sv)
+
+The variables can share a value by using `sv` as the handle. For example:
+```dosini
+sv__SHARED_VALUE=somesharedvalue
+
+front__VARIABLE_KEY=sv__SHARED_VALUE
+back__VARIABLE_KEY=sv__SHARED_VALUE
 ```
