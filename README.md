@@ -47,15 +47,15 @@ Config file, `oneenv.config.json` (root of your project):
 ```json
 {
   "targets": {
-    "frontend": "frontend",
-    "backend": "backend",
+    "front": "frontend",
+    "back": "backend",
     "calcService": "calcService/src"
   },
   "separator": "--"
 }
 ```
 
-You do not need to specify the separator and the targets in both files, either specify them in the root .env file, in the config file, or in a package.json script task. The defining of the separator is optional, default is `__`.
+You need to specify the target in the root .env file, in the config file, or in a package.json script task. The defining of the separator is optional, default is `__`.
 
 ## Targets
 
@@ -69,19 +69,21 @@ back__env_config_target=backend
 
 2. In the `oneenv.config.json` file:
 ```json
-"targets": {
-    "frontend": "front",
-    "backend": "back",
+{
+  "targets": {
+    "front": "frontend",
+    "back": "backend",
   },
+}
 ```
 
 3. In a package.json script task:
 ```json
-...
+..
 "scripts": {
   "env": "front__env_config_target=frontend back__env_config_target=backend oneenv"
 }
-...
+..
 ```
 
 ## Variables
